@@ -102,7 +102,7 @@
     var unternehmen = form.querySelector('#unternehmen').value.trim();
     var nachricht = form.querySelector('#nachricht').value.trim();
 
-    var subject = encodeURIComponent('Anfrage über norvex.de von ' + name);
+    var subject = encodeURIComponent('Anfrage über norvex.studio von ' + name);
     var bodyLines = [
       'Name: ' + name,
       'E-Mail: ' + email,
@@ -112,9 +112,9 @@
     ].filter(Boolean);
     var body = encodeURIComponent(bodyLines.join('\n'));
 
-    window.location.href = 'mailto:hallo@norvex.de?subject=' + subject + '&body=' + body;
+    window.location.href = 'mailto:info@norvex.studio?subject=' + subject + '&body=' + body;
 
     note.style.color = 'var(--cyan)';
-    note.textContent = 'Dein E-Mail-Programm öffnet sich mit deiner Nachricht an hallo@norvex.de.';
+    note.textContent = 'Dein E-Mail-Programm öffnet sich mit deiner Nachricht an info@norvex.studio.';
   });
 })();

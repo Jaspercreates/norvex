@@ -33,10 +33,12 @@ Danach `http://localhost:8080` öffnen.
 Folgende Angaben sind aktuell **Platzhalter** und müssen vor dem echten Launch
 ersetzt werden:
 
-- Kontakt-E-Mail: `hallo@norvex.de`
 - Telefonnummer: `0471 000 0000`
 - Standort: nur „Bremerhaven“, keine Straße
 - Impressum (`impressum.html`): vollständig offen, siehe Hinweis auf der Seite
+- Datenschutzerklärung (`datenschutz.html`): Verantwortlicher-Angaben offen
+
+Kontakt-E-Mail (`info@norvex.studio`) ist bereits real (Weiterleitung eingerichtet).
 
 ## Deployment
 
