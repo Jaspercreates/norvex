@@ -52,8 +52,8 @@
   });
 
   function loop() {
-    ringX += (targetX - ringX) * 0.18;
-    ringY += (targetY - ringY) * 0.18;
+    ringX += (targetX - ringX) * 0.35;
+    ringY += (targetY - ringY) * 0.35;
     ring.style.left = ringX + 'px';
     ring.style.top = ringY + 'px';
     requestAnimationFrame(loop);
