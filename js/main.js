@@ -26,6 +26,13 @@
 
   var dot = document.createElement('div');
   dot.className = 'cursor-dot';
+  dot.innerHTML =
+    '<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+      '<g style="isolation:isolate">' +
+        '<rect class="logo-bar-cyan" x="8" y="38" width="84" height="24" rx="12" transform="rotate(45 50 50)"/>' +
+        '<rect class="logo-bar-violet" x="8" y="38" width="84" height="24" rx="12" transform="rotate(-45 50 50)"/>' +
+      '</g>' +
+    '</svg>';
   var ring = document.createElement('div');
   ring.className = 'cursor-ring';
   document.body.appendChild(dot);
