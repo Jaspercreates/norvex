@@ -362,6 +362,55 @@ button { font: inherit; cursor: pointer; }
 }
 
 /* =========================================================
+   Portfolio (Referenzen placeholder)
+   ========================================================= */
+.portfolio-grid {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.portfolio-placeholder {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: rgba(14, 17, 28, 0.4);
+}
+.portfolio-placeholder::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 25% 20%, rgba(41, 240, 255, 0.16), transparent 55%),
+    radial-gradient(circle at 75% 80%, rgba(183, 107, 255, 0.16), transparent 55%);
+}
+
+.portfolio-badge {
+  position: relative;
+  font-family: var(--font-head);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  padding: 8px 16px;
+  background: rgba(6, 7, 12, 0.6);
+}
+
+.portfolio-cta {
+  margin-top: 40px;
+  text-align: center;
+}
+
+/* =========================================================
    Process (Ablauf)
    ========================================================= */
 .process-grid {
@@ -538,6 +587,7 @@ button { font: inherit; cursor: pointer; }
    ========================================================= */
 @media (max-width: 960px) {
   .pricing-grid { grid-template-columns: 1fr; }
+  .portfolio-grid { grid-template-columns: 1fr; }
   .process-grid { grid-template-columns: repeat(2, 1fr); }
   .about-inner { grid-template-columns: 1fr; }
   .about-visual { height: 220px; order: -1; }
@@ -579,6 +629,8 @@ button { font: inherit; cursor: pointer; }
   .section { padding: 64px 0; }
   .section-sub { font-size: 0.98rem; }
   .pricing-grid { margin-top: 40px; gap: 20px; }
+  .portfolio-grid { margin-top: 40px; gap: 20px; }
+  .portfolio-cta { margin-top: 28px; }
   .process-grid { grid-template-columns: 1fr; margin-top: 40px; gap: 20px; }
   .about-inner { gap: 32px; }
   .contact-inner { gap: 36px; }
