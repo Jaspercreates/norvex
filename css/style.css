@@ -612,8 +612,8 @@ button { font: inherit; cursor: pointer; }
   position: fixed;
   top: 0;
   left: 0;
-  width: 22px;
-  height: 22px;
+  width: 28px;
+  height: 28px;
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
@@ -626,16 +626,16 @@ button { font: inherit; cursor: pointer; }
   position: fixed;
   top: 0;
   left: 0;
-  width: 30px;
-  height: 30px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
-  border: 1.5px solid var(--cyan);
-  border-right-color: var(--violet);
-  border-bottom-color: var(--violet);
+  background: radial-gradient(circle, rgba(41, 240, 255, 0.4) 0%, rgba(183, 107, 255, 0.28) 45%, rgba(183, 107, 255, 0) 72%);
+  filter: blur(4px);
+  mix-blend-mode: screen;
   pointer-events: none;
   z-index: 9998;
   transform: translate(-50%, -50%);
-  transition: width 0.15s ease, height 0.15s ease, opacity 0.2s ease;
+  transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
   opacity: 0;
 }
 
@@ -643,12 +643,12 @@ button { font: inherit; cursor: pointer; }
 .cursor-ring.cursor-visible { opacity: 1; }
 
 .cursor-dot.cursor-hover {
-  width: 30px;
-  height: 30px;
+  width: 36px;
+  height: 36px;
   transform: translate(-50%, -50%) rotate(90deg);
 }
 
 .cursor-ring.cursor-hover {
-  width: 44px;
-  height: 44px;
+  width: 88px;
+  height: 88px;
 }
