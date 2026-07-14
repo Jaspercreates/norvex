@@ -262,6 +262,37 @@ button { font: inherit; cursor: pointer; }
 
 .hero-inner { position: relative; z-index: 1; max-width: 780px; }
 
+.scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-dim);
+  transition: color 0.2s ease;
+}
+.scroll-cue:hover { color: var(--cyan); }
+.scroll-cue-text {
+  font-family: var(--font-head);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.scroll-cue-arrow {
+  filter: drop-shadow(0 0 6px rgba(41, 240, 255, 0.6));
+  animation: scroll-cue-bounce 2s ease-in-out infinite;
+}
+
+@keyframes scroll-cue-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(7px); }
+}
+
 .hero-title {
   font-size: clamp(2.2rem, 5vw, 3.6rem);
   margin-bottom: 22px;
@@ -650,6 +681,7 @@ button { font: inherit; cursor: pointer; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .btn, .price-card, .main-nav a, .footer-nav a { transition: none; }
+  .scroll-cue-arrow { animation: none; }
 }
 
 /* =========================================================
