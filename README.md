@@ -1,7 +1,7 @@
 # Norvex
 
 Website für Norvex — ein Webstudio aus Bremerhaven, das Websites für lokale
-Unternehmen (Handwerk, Praxen, Gastronomie) baut.
+Unternehmen jeder Branche baut.
 
 Statische Website ohne Build-Schritt: reines HTML, CSS und Vanilla-JS.
 
