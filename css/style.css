@@ -160,8 +160,8 @@ button { font: inherit; cursor: pointer; }
   gap: 10px;
 }
 .logo-mark { flex-shrink: 0; }
-.blob-cyan { fill: var(--cyan); filter: drop-shadow(0 0 6px rgba(41, 240, 255, 0.9)); }
-.blob-violet {
+.logo-bar-cyan { fill: var(--cyan); filter: drop-shadow(0 0 6px rgba(41, 240, 255, 0.9)); }
+.logo-bar-violet {
   fill: var(--violet);
   mix-blend-mode: screen;
   filter: drop-shadow(0 0 6px rgba(183, 107, 255, 0.9));
@@ -207,6 +207,8 @@ button { font: inherit; cursor: pointer; }
   transition: color 0.18s ease, text-shadow 0.18s ease;
 }
 .main-nav a:hover { color: var(--cyan); text-shadow: 0 0 10px rgba(41, 240, 255, 0.6); }
+
+.nav-cta-mobile { display: none; }
 
 .header-cta { flex-shrink: 0; }
 
@@ -543,6 +545,7 @@ button { font: inherit; cursor: pointer; }
 }
 
 @media (max-width: 760px) {
+  .header-inner { padding-top: 14px; padding-bottom: 14px; }
   .main-nav { display: none; }
   .header-cta { display: none; }
   .nav-toggle { display: flex; }
@@ -556,24 +559,97 @@ button { font: inherit; cursor: pointer; }
     right: 0;
     background: rgba(6, 7, 12, 0.98);
     border-bottom: 1px solid var(--border);
-    padding: 20px 24px 28px;
-    gap: 18px;
+    padding: 24px 24px 32px;
+    gap: 22px;
     margin: 0;
+    font-size: 1.05rem;
   }
 
-  .hero { padding: 88px 0 72px; }
-  .hero-actions { flex-direction: column; align-items: stretch; }
-  .section { padding: 72px 0; }
-  .process-grid { grid-template-columns: 1fr; }
+  .nav-cta-mobile {
+    display: flex;
+    margin-top: 6px;
+  }
+
+  .hero { padding: 64px 0 64px; }
+  .hero-glow { width: 360px; height: 360px; filter: blur(90px); }
+  .hero-title { margin-bottom: 18px; }
+  .hero-sub { margin-bottom: 28px; }
+  .hero-actions { flex-direction: column; align-items: stretch; gap: 14px; }
+
+  .section { padding: 64px 0; }
+  .section-sub { font-size: 0.98rem; }
+  .pricing-grid { margin-top: 40px; gap: 20px; }
+  .process-grid { grid-template-columns: 1fr; margin-top: 40px; gap: 20px; }
+  .about-inner { gap: 32px; }
+  .contact-inner { gap: 36px; }
 }
 
 @media (max-width: 420px) {
   .container { padding: 0 18px; }
   .price-card, .contact-form { padding: 26px 20px; }
+  .hero-title { font-size: 2rem; }
+  .btn { padding: 13px 22px; }
 }
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .btn, .price-card, .main-nav a, .footer-nav a { transition: none; }
+}
+
+/* =========================================================
+   Custom cursor (easter egg, fine-pointer devices only)
+   ========================================================= */
+.cursor-active,
+.cursor-active a,
+.cursor-active button,
+.cursor-active input,
+.cursor-active textarea {
+  cursor: none;
+}
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: conic-gradient(from 180deg, var(--cyan), var(--violet), var(--cyan));
+  mix-blend-mode: screen;
+  box-shadow: 0 0 12px rgba(41, 240, 255, 0.8), 0 0 22px rgba(183, 107, 255, 0.6);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.18s ease, height 0.18s ease, opacity 0.2s ease;
+  opacity: 0;
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(183, 107, 255, 0.6);
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.25s ease, height 0.25s ease, opacity 0.2s ease, border-color 0.2s ease;
+  opacity: 0;
+}
+
+.cursor-dot.cursor-visible,
+.cursor-ring.cursor-visible { opacity: 1; }
+
+.cursor-dot.cursor-hover {
+  width: 34px;
+  height: 34px;
+}
+
+.cursor-ring.cursor-hover {
+  width: 60px;
+  height: 60px;
+  border-color: var(--cyan);
 }

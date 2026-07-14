@@ -19,6 +19,62 @@
   });
 })();
 
+// Custom cursor easter egg (fine-pointer / mouse devices only)
+(function () {
+  if (!window.matchMedia('(pointer: fine)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var dot = document.createElement('div');
+  dot.className = 'cursor-dot';
+  var ring = document.createElement('div');
+  ring.className = 'cursor-ring';
+  document.body.appendChild(dot);
+  document.body.appendChild(ring);
+  document.documentElement.classList.add('cursor-active');
+
+  var targetX = window.innerWidth / 2;
+  var targetY = window.innerHeight / 2;
+  var ringX = targetX;
+  var ringY = targetY;
+
+  document.addEventListener('mousemove', function (e) {
+    targetX = e.clientX;
+    targetY = e.clientY;
+    dot.classList.add('cursor-visible');
+    ring.classList.add('cursor-visible');
+    dot.style.left = targetX + 'px';
+    dot.style.top = targetY + 'px';
+  });
+
+  document.addEventListener('mouseleave', function () {
+    dot.classList.remove('cursor-visible');
+    ring.classList.remove('cursor-visible');
+  });
+
+  function loop() {
+    ringX += (targetX - ringX) * 0.18;
+    ringY += (targetY - ringY) * 0.18;
+    ring.style.left = ringX + 'px';
+    ring.style.top = ringY + 'px';
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+
+  var hoverTargets = 'a, button, input, textarea, .btn';
+  document.addEventListener('mouseover', function (e) {
+    if (e.target.closest(hoverTargets)) {
+      dot.classList.add('cursor-hover');
+      ring.classList.add('cursor-hover');
+    }
+  });
+  document.addEventListener('mouseout', function (e) {
+    if (e.target.closest(hoverTargets)) {
+      dot.classList.remove('cursor-hover');
+      ring.classList.remove('cursor-hover');
+    }
+  });
+})();
+
 // Contact form: client-side only (no backend wired up yet)
 (function () {
   var form = document.getElementById('contactForm');
