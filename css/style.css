@@ -241,7 +241,10 @@ button { font: inherit; cursor: pointer; }
    ========================================================= */
 .hero {
   position: relative;
-  padding: 120px 0 100px;
+  min-height: calc(100vh - 81px);
+  display: flex;
+  align-items: center;
+  padding: 90px 0;
   overflow: hidden;
 }
 .hero-glow {
@@ -620,7 +623,7 @@ button { font: inherit; cursor: pointer; }
     margin-top: 6px;
   }
 
-  .hero { padding: 64px 0 64px; }
+  .hero { min-height: calc(100vh - 65px); padding: 64px 0; }
   .hero-glow { width: 360px; height: 360px; filter: blur(90px); }
   .hero-title { margin-bottom: 18px; }
   .hero-sub { margin-bottom: 28px; }
