@@ -616,6 +616,19 @@ button { font: inherit; cursor: pointer; }
 .legal-placeholder ul { margin: 0 0 4px; padding-left: 20px; list-style: disc; }
 .legal-placeholder li { margin-bottom: 6px; }
 
+.legal-subtitle {
+  font-size: 1.15rem;
+  margin: 36px 0 12px;
+}
+.legal-text {
+  color: var(--text-dim);
+  max-width: 720px;
+  margin-bottom: 8px;
+}
+.legal-text a { color: var(--cyan); text-decoration: underline; text-underline-offset: 2px; }
+.legal-text a:hover { text-shadow: 0 0 8px rgba(41, 240, 255, 0.5); }
+.legal-back { margin-top: 32px; }
+
 /* =========================================================
    Responsive
    ========================================================= */
