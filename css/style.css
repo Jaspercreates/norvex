@@ -445,6 +445,68 @@ button { font: inherit; cursor: pointer; }
 }
 
 /* =========================================================
+   FAQ
+   ========================================================= */
+.faq-list {
+  max-width: 720px;
+  margin: 48px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 4px 22px;
+  transition: border-color 0.2s ease;
+}
+.faq-item[open] { border-color: var(--border-strong); }
+
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 0;
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 1rem;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+
+.faq-item summary::after {
+  content: "+";
+  flex-shrink: 0;
+  font-family: var(--font-head);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--cyan);
+  text-shadow: 0 0 10px rgba(41, 240, 255, 0.5);
+  transition: transform 0.2s ease;
+}
+.faq-item[open] summary::after {
+  content: "+";
+  transform: rotate(45deg);
+  color: var(--violet);
+  text-shadow: 0 0 10px rgba(183, 107, 255, 0.5);
+}
+
+.faq-item p {
+  color: var(--text-dim);
+  padding: 0 0 20px;
+  margin: 0;
+  max-width: 62ch;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-item, .faq-item summary::after { transition: none; }
+}
+
+/* =========================================================
    Process (Ablauf)
    ========================================================= */
 .process-grid {
@@ -531,6 +593,23 @@ button { font: inherit; cursor: pointer; }
 .contact-details a { font-size: 1.05rem; font-weight: 500; transition: color 0.18s ease; }
 .contact-details a:hover { color: var(--cyan); text-shadow: 0 0 10px rgba(41, 240, 255, 0.5); }
 
+.response-time {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 24px;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+.response-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 8px rgba(41, 240, 255, 0.8);
+  flex-shrink: 0;
+}
+
 .placeholder-note {
   font-size: 0.85rem;
   color: var(--text-faint);
@@ -570,6 +649,120 @@ button { font: inherit; cursor: pointer; }
   box-shadow: 0 0 0 3px rgba(41, 240, 255, 0.15);
 }
 .form-note { font-size: 0.88rem; color: var(--cyan); min-height: 1.2em; }
+
+/* =========================================================
+   Dot navigation (side scroll indicator)
+   ========================================================= */
+.dot-nav {
+  display: none;
+  position: fixed;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 400;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+@media (min-width: 1180px) {
+  .dot-nav { display: flex; }
+}
+
+.dot-nav-item {
+  position: relative;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--border-strong);
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+.dot-nav-item:hover { transform: scale(1.4); }
+.dot-nav-item.active {
+  background: linear-gradient(135deg, var(--cyan), var(--violet));
+  box-shadow: 0 0 10px rgba(41, 240, 255, 0.6), 0 0 16px rgba(183, 107, 255, 0.4);
+  transform: scale(1.3);
+}
+
+.dot-nav-tooltip {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  font-family: var(--font-head);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  padding: 5px 12px;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+.dot-nav-item:hover .dot-nav-tooltip,
+.dot-nav-item:focus-visible .dot-nav-tooltip { opacity: 1; }
+
+/* =========================================================
+   WhatsApp FAB
+   ========================================================= */
+.whatsapp-fab {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 56px;
+  padding: 0 20px 0 16px;
+  border-radius: 999px;
+  background: linear-gradient(120deg, var(--cyan), var(--violet));
+  color: #06070c;
+  box-shadow: 0 0 20px rgba(41, 240, 255, 0.3), 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, padding 0.18s ease;
+}
+.whatsapp-fab svg { flex-shrink: 0; }
+.whatsapp-fab-label {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.88rem;
+  white-space: nowrap;
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-width 0.22s ease, opacity 0.18s ease;
+}
+.whatsapp-fab:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 28px rgba(41, 240, 255, 0.45), 0 12px 34px rgba(0, 0, 0, 0.45);
+}
+.whatsapp-fab:hover .whatsapp-fab-label {
+  max-width: 90px;
+  opacity: 1;
+}
+.whatsapp-fab:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+  .whatsapp-fab {
+    right: 16px;
+    bottom: 16px;
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    justify-content: center;
+  }
+  .whatsapp-fab-label { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-fab, .whatsapp-fab-label { transition: none; }
+}
 
 /* =========================================================
    Footer

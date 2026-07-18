@@ -19,6 +19,33 @@
   });
 })();
 
+// Side dot navigation: highlight the section currently in view
+(function () {
+  var navItems = document.querySelectorAll('.dot-nav-item');
+  if (!navItems.length || !('IntersectionObserver' in window)) return;
+
+  var sections = [];
+  navItems.forEach(function (item) {
+    var section = document.getElementById(item.getAttribute('data-target'));
+    if (section) sections.push(section);
+  });
+
+  var observer = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var match = document.querySelector('.dot-nav-item[data-target="' + entry.target.id + '"]');
+        if (!match) return;
+        navItems.forEach(function (item) { item.classList.remove('active'); });
+        match.classList.add('active');
+      });
+    },
+    { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
+  );
+
+  sections.forEach(function (section) { observer.observe(section); });
+})();
+
 // Custom cursor easter egg (fine-pointer / mouse devices only)
 (function () {
   if (!window.matchMedia('(pointer: fine)').matches) return;
