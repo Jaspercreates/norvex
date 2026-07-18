@@ -112,9 +112,9 @@
     ].filter(Boolean);
     var body = encodeURIComponent(bodyLines.join('\n'));
 
-    window.location.href = 'mailto:info@norvex.studio?subject=' + subject + '&body=' + body;
+    window.location.href = 'mailto:norvexwork@gmail.com?subject=' + subject + '&body=' + body;
 
     note.style.color = 'var(--cyan)';
-    note.textContent = 'Dein E-Mail-Programm öffnet sich mit deiner Nachricht an info@norvex.studio.';
+    note.textContent = 'Dein E-Mail-Programm öffnet sich mit deiner Nachricht an norvexwork@gmail.com.';
   });
 })();
