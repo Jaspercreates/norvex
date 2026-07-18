@@ -7,10 +7,11 @@ Statische Website ohne Build-Schritt: reines HTML, CSS und Vanilla-JS.
 
 ## Struktur
 
-- `index.html` — Startseite (Header, Hero, Pakete, Ablauf, Über uns, Kontakt, Footer)
-- `impressum.html` — Platzhalter-Impressum (rechtliche Angaben noch offen)
+- `index.html` — Startseite (Header, Hero, Pakete, Ablauf, Referenzen, Über uns, Kontakt, Footer)
+- `impressum.html` — Impressum gemäß § 5 TMG
+- `datenschutz.html` — Datenschutzerklärung
 - `css/style.css` — Design-System (Dark Theme, Cyan/Violet Neon-Glow)
-- `js/main.js` — Mobiles Menü, Kontaktformular
+- `js/main.js` — Mobiles Menü, Kontaktformular, Custom Cursor
 
 ## Lokal ansehen
 
@@ -28,17 +29,16 @@ powershell -ExecutionPolicy Bypass -File scripts/serve.ps1 -Port 8080
 
 Danach `http://localhost:8080` öffnen.
 
-## Platzhalterdaten
+## Kontaktdaten
 
-Folgende Angaben sind aktuell **Platzhalter** und müssen vor dem echten Launch
-ersetzt werden:
+E-Mail, Telefon und die Anschrift in Impressum/Datenschutzerklärung sind echte Daten.
+Der "Standort" im öffentlichen Kontaktbereich zeigt bewusst nur „Bremerhaven“ ohne
+Straße — die vollständige Anschrift steht ausschließlich dort, wo sie gesetzlich
+vorgeschrieben ist (Impressum, Datenschutzerklärung).
 
-- Telefonnummer: `0471 000 0000`
-- Standort: nur „Bremerhaven“, keine Straße
-- Impressum (`impressum.html`): vollständig offen, siehe Hinweis auf der Seite
-- Datenschutzerklärung (`datenschutz.html`): Verantwortlicher-Angaben offen
-
-Kontakt-E-Mail (`info@norvex.studio`) ist bereits real (Weiterleitung eingerichtet).
+Offen für den echten Launch: Gewerbeanmeldung final abschließen, ggf. USt-IdNr./
+Handelsregisterangaben im Impressum ergänzen, Datenschutzerklärung rechtlich
+prüfen lassen, Referenzen-Sektion mit echten Projekten befüllen.
 
 ## Deployment
 
